@@ -1,0 +1,39 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+HERE
+HERE
+HERE
+HERE
+HERE
+HERE
+STRING IS: UPDATE BROWSER_SHARING SET FULLID='TestCase x123',STATUS='TAKEN'WHERE ID = 0
+Records created successfully
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+user-data-dir=Y:\Browser_profile0
+[class:class org.openqa.selenium.chrome.ChromeOptions, binary:null]
+
+[platform:ANY, class:class org.openqa.selenium.remote.DesiredCapabilities, javascriptEnabled:true, version:, browserName:chrome]
+Go To localxx1
+local is opened
+driver info1 =about:blank
+driver info2 =about:blank
+JUnit 4 Runner, Tests: 2, Failures: 1, Time: 6991
+Test Failure: com.ETMS1.ProcTestCase01xx
+org.openqa.selenium.remote.SessionNotFoundException: no such session
+  (Driver info: chromedriver=2.20.353145 (343b531d31eeb933ec778dbcf7081628a1396067),platform=Windows NT 10.0 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 42 milliseconds
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'PC-E', ip: '192.168.178.11', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Session ID: 0f4b76416695d8c3a63885789ab3412a
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{platform=WIN8_1, acceptSslCerts=true, javascriptEnabled=true, browserName=chrome, chrome={userDataDir=Y:\Browser_profile0}, rotatable=false, locationContextEnabled=true, mobileEmulationEnabled=false, version=49.0.2623.110, takesHeapSnapshot=true, cssSelectorsEnabled=true, databaseEnabled=false, handlesAlerts=true, browserConnectionEnabled=false, webStorageEnabled=true, nativeEvents=true, hasTouchScreen=false, applicationCacheEnabled=false, takesScreenshot=true}]
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:162)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:463)
+	at geb.Browser.close(Browser.groovy:675)
+	at com.ETMS1.ProcTestCase01xx.cleanupSpec(ProcTestCase01xx.groovy:119)
+

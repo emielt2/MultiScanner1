@@ -1,0 +1,27 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+Opened database successfully
+HERE
+HERE
+HERE
+HERE
+HERE
+HERE
+Closed database successfully
+Opened database successfully
+Closed database successfully
+Opened database successfully
+STRING IS: UPDATE BROWSER_SHARING SET FULLID='TestCase x123',STATUS='TAKEN'WHERE ID = 1
+Closed database successfully
+Records created successfully
+ getNewBrowserNumber gave = 1
+this is webdriver stuff in gebconfig
+user-data-dir=Y:\Browser_profile1
+Go To local
+local is opened
+driver info1 =Random games2
+driver info2 =Random games2
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 2, Failures: 0, Time: 11256

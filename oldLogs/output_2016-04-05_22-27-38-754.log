@@ -1,0 +1,47 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+HERE
+HERE
+HERE
+HERE
+HERE
+HERE
+STRING IS: UPDATE BROWSER_SHARING SET FULLID='TestCase x123',STATUS='TAKEN'WHERE ID = 0
+Records created successfully
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+user-data-dir=Y:\Browser_profile0
+[class:class org.openqa.selenium.chrome.ChromeOptions, binary:null]
+
+[platform:ANY, class:class org.openqa.selenium.remote.DesiredCapabilities, javascriptEnabled:true, version:, browserName:chrome]
+Go To localxx1
+driver info1 =404 Not Found
+driver info2 =404 Not Found
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 1, Failures: 1, Time: 10035
+Test Failure: Step 01 Go To local(com.ETMS1.ProcTestCase01xx)
+geb.waiting.WaitTimeoutException: condition did not pass in 4.0 seconds (failed with exception)
+	at geb.waiting.Wait.waitFor(Wait.groovy:138)
+	at geb.Page.verifyThisPageAtOnly(Page.groovy:226)
+	at geb.Page.verifyAt(Page.groovy:182)
+	at geb.Browser.doAt(Browser.groovy:455)
+	at geb.Browser.at(Browser.groovy:354)
+	at geb.Browser.to(Browser.groovy:566)
+	at geb.Browser.to(Browser.groovy:553)
+	at geb.Browser.to(Browser.groovy:520)
+	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:56)
+	at com.ETMS1.ProcTestCase01xx.Step 01 Go To local(ProcTestCase01xx.groovy:23)
+Caused by: Assertion failed: 
+
+title == "Random games1"
+|     |
+|     false
+404 Not Found
+
+	at com.ETMS1.Random1Page._clinit__closure1(Random1Page.groovy:10)
+	at com.ETMS1.Random1Page._clinit__closure1(Random1Page.groovy)
+	at geb.waiting.Wait.waitFor(Wait.groovy:127)
+	... 9 more
+

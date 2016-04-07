@@ -1,0 +1,89 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+HERE
+HERE
+HERE
+HERE
+HERE
+HERE
+STRING IS: UPDATE BROWSER_SHARING SET FULLID='TestCase x123',STATUS='TAKEN'WHERE ID = 0
+Records created successfully
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+user-data-dir=Y:\Browser_profile0
+[class:class org.openqa.selenium.chrome.ChromeOptions, binary:null]
+
+[platform:ANY, class:class org.openqa.selenium.remote.DesiredCapabilities, javascriptEnabled:true, version:, browserName:chrome]
+this is webdriver stuff in gebconfig
+this is webdriver stuff in gebconfig
+JUnit 4 Runner, Tests: 0, Failures: 3, Time: 2881
+Test Failure: com.ETMS1.ProcTestCase01xx
+java.lang.IllegalStateException: The driver executable does not exist: F:\SeleniumDownloadFolder\chromedriver_win32\cXhromedriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:197)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:122)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:117)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$0(ChromeDriverService.java:1)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:118)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:291)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:82)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at com.ETMS1.GebConfigExtraETS2.getDriver(GebConfigExtraETS2.groovy:58)
+	at com.ETMS1.ProcTestCase01xx.setupSpec(ProcTestCase01xx.groovy:92)
+
+Test Failure: com.ETMS1.ProcTestCase01xx
+geb.driver.DriverCreationException: failed to create driver from callback 'script14598927258011914034554$_run_closure2$_closure5@11d6e3af'
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:35)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy:85)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy)
+	at geb.driver.CachingDriverFactory$SimpleCache.get(CachingDriverFactory.groovy:32)
+	at geb.driver.CachingDriverFactory.getDriver(CachingDriverFactory.groovy:84)
+	at geb.Configuration.createDriver(Configuration.groovy:382)
+	at geb.Configuration.getDriver(Configuration.groovy:371)
+	at geb.Browser.getDriver(Browser.groovy:109)
+	at geb.spock.GebSpec.propertyMissing(GebSpec.groovy:60)
+	at com.ETMS1.ProcTestCase01xx.cleanupSpec(ProcTestCase01xx.groovy:96)
+Caused by: java.lang.IllegalStateException: The driver executable does not exist: F:\SeleniumDownloadFolder\chromedriver_win32\cXhromedriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:197)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:122)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:117)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$0(ChromeDriverService.java:1)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:118)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:291)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:82)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at script14598927258011914034554.getDriver(script14598927258011914034554.groovy:109)
+	at script14598927258011914034554.run_closure2$_closure5(script14598927258011914034554.groovy:87)
+	at script14598927258011914034554.run_closure2$_closure5(script14598927258011914034554.groovy)
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:29)
+	... 9 more
+
+Test Failure: com.ETMS1.ProcTestCase01xx
+geb.driver.DriverCreationException: failed to create driver from callback 'script14598927258011914034554$_run_closure2$_closure5@11d6e3af'
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:35)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy:85)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy)
+	at geb.driver.CachingDriverFactory$SimpleCache.get(CachingDriverFactory.groovy:32)
+	at geb.driver.CachingDriverFactory.getDriver(CachingDriverFactory.groovy:84)
+	at geb.Configuration.createDriver(Configuration.groovy:382)
+	at geb.Configuration.getDriver(Configuration.groovy:371)
+	at geb.Browser.getDriver(Browser.groovy:109)
+	at geb.Browser.clearCookies(Browser.groovy:646)
+	at geb.Browser.clearCookiesQuietly(Browser.groovy:654)
+	at geb.spock.GebSpec.resetBrowser(GebSpec.groovy:50)
+	at geb.spock.GebSpec.cleanupSpec(GebSpec.groovy:79)
+Caused by: java.lang.IllegalStateException: The driver executable does not exist: F:\SeleniumDownloadFolder\chromedriver_win32\cXhromedriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:197)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:122)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:117)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$0(ChromeDriverService.java:1)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:118)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:291)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:82)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at script14598927258011914034554.getDriver(script14598927258011914034554.groovy:109)
+	at script14598927258011914034554.run_closure2$_closure5(script14598927258011914034554.groovy:87)
+	at script14598927258011914034554.run_closure2$_closure5(script14598927258011914034554.groovy)
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:29)
+	... 11 more
+

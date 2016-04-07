@@ -1,0 +1,24 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+HERE
+HERE
+HERE
+HERE
+HERE
+HERE
+STRING IS: UPDATE BROWSER_SHARING SET FULLID='TestCase x123',STATUS='TAKEN'WHERE ID = 0
+Records created successfully
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+user-data-dir=Y:\Browser_profile0
+[class:class org.openqa.selenium.chrome.ChromeOptions, binary:null]
+
+[platform:ANY, class:class org.openqa.selenium.remote.DesiredCapabilities, javascriptEnabled:true, version:, browserName:chrome]
+Go To localxx1
+local is opened
+driver info1 =about:blank
+driver info2 =about:blank
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 2, Failures: 0, Time: 13973

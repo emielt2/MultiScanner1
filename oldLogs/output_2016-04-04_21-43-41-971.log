@@ -1,0 +1,14 @@
+this is setproperty in gebconfig
+this is webdriver stuff in gebconfig
+driver info1 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+driver info2 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 0, Failures: 1, Time: 16752
+Test Failure: com.ETMS1.ProcTestCase01xx
+java.lang.IllegalStateException: Could not create report group dir 'reports\com\ETMS1\ProcTestCase01xx'
+	at geb.Browser.getReportGroupDir(Browser.groovy:889)
+	at geb.Browser.cleanReportGroupDir(Browser.groovy:917)
+	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:56)
+	at geb.spock.GebReportingSpec.setupSpec(GebReportingSpec.groovy:33)
+

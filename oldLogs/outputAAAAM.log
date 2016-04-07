@@ -1,0 +1,11 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+Go To local
+local is opened
+driver info1 =Random games
+driver info2 =Random games
+This is after close()
+JUnit 4 Runner, Tests: 2, Failures: 0, Time: 10273
+Terminate batch job (Y/N)? 

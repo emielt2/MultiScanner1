@@ -1,0 +1,91 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+this is webdriver stuff in gebconfig
+this is webdriver stuff in gebconfig
+JUnit 4 Runner, Tests: 0, Failures: 3, Time: 13471
+Test Failure: com.ETMS1.ProcTestCase01
+org.openqa.selenium.WebDriverException: unknown error: cannot create default profile directory
+  (Driver info: chromedriver=2.20.353145 (343b531d31eeb933ec778dbcf7081628a1396067),platform=Windows NT 10.0 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 2.61 seconds
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'PC-E', ip: '192.168.178.11', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:139)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at com.ETMS1.GebConfigExtraETS2.getDriver(GebConfigExtraETS2.groovy:52)
+	at com.ETMS1.ProcTestCase01.setupSpec(ProcTestCase01.groovy:69)
+
+Test Failure: com.ETMS1.ProcTestCase01
+geb.driver.DriverCreationException: failed to create driver from callback 'script14596298977231914034554$_run_closure2$_closure5@52cb0004'
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:35)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy:85)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy)
+	at geb.driver.CachingDriverFactory$SimpleCache.get(CachingDriverFactory.groovy:32)
+	at geb.driver.CachingDriverFactory.getDriver(CachingDriverFactory.groovy:84)
+	at geb.Configuration.createDriver(Configuration.groovy:382)
+	at geb.Configuration.getDriver(Configuration.groovy:371)
+	at geb.Browser.getDriver(Browser.groovy:109)
+	at geb.spock.GebSpec.propertyMissing(GebSpec.groovy:60)
+	at com.ETMS1.ProcTestCase01.cleanupSpec(ProcTestCase01.groovy:73)
+Caused by: org.openqa.selenium.WebDriverException: unknown error: cannot create default profile directory
+  (Driver info: chromedriver=2.20.353145 (343b531d31eeb933ec778dbcf7081628a1396067),platform=Windows NT 10.0 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1.01 seconds
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'PC-E', ip: '192.168.178.11', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:139)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at script14596298977231914034554.getDriver(script14596298977231914034554.groovy:109)
+	at script14596298977231914034554.run_closure2$_closure5(script14596298977231914034554.groovy:87)
+	at script14596298977231914034554.run_closure2$_closure5(script14596298977231914034554.groovy)
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:29)
+	... 9 more
+
+Test Failure: com.ETMS1.ProcTestCase01
+geb.driver.DriverCreationException: failed to create driver from callback 'script14596298977231914034554$_run_closure2$_closure5@52cb0004'
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:35)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy:85)
+	at geb.driver.CachingDriverFactory.getDriver_closure3(CachingDriverFactory.groovy)
+	at geb.driver.CachingDriverFactory$SimpleCache.get(CachingDriverFactory.groovy:32)
+	at geb.driver.CachingDriverFactory.getDriver(CachingDriverFactory.groovy:84)
+	at geb.Configuration.createDriver(Configuration.groovy:382)
+	at geb.Configuration.getDriver(Configuration.groovy:371)
+	at geb.Browser.getDriver(Browser.groovy:109)
+	at geb.Browser.clearCookies(Browser.groovy:646)
+	at geb.Browser.clearCookiesQuietly(Browser.groovy:654)
+	at geb.spock.GebSpec.resetBrowser(GebSpec.groovy:50)
+	at geb.spock.GebSpec.cleanupSpec(GebSpec.groovy:79)
+Caused by: org.openqa.selenium.WebDriverException: unknown error: cannot create default profile directory
+  (Driver info: chromedriver=2.20.353145 (343b531d31eeb933ec778dbcf7081628a1396067),platform=Windows NT 10.0 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 1.03 seconds
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'PC-E', ip: '192.168.178.11', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:139)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at script14596298977231914034554.getDriver(script14596298977231914034554.groovy:109)
+	at script14596298977231914034554.run_closure2$_closure5(script14596298977231914034554.groovy:87)
+	at script14596298977231914034554.run_closure2$_closure5(script14596298977231914034554.groovy)
+	at geb.driver.CallbackDriverFactory.getDriver(CallbackDriverFactory.groovy:29)
+	... 11 more
+

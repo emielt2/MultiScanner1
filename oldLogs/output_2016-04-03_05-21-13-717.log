@@ -1,0 +1,17 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+numberOfActiveBrowsers ABC=true
+numberOfActiveBrowsers ABC=true
+FALSE FOR 2
+CHANGED TO TRUE FOR BROWSER 2
+this is webdriver stuff in gebconfig
+driver info1 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+driver info2 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 0, Failures: 1, Time: 5255
+Test Failure: com.ETMS1.ProcTestCase01xx
+groovy.lang.MissingPropertyException: No such property: guix for class: com.ETMS1.GUI
+	at com.ETMS1.ProcTestCase01xx.setupSpec(ProcTestCase01xx.groovy:74)
+

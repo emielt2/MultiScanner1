@@ -1,0 +1,32 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+Go To local
+local is opened
+driver info1 =Random games2
+driver info2 =Random games2
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 2, Failures: 1, Time: 16306
+Test Failure: Step 03 Go To local(com.ETMS1.ProcTestCase01)
+geb.waiting.WaitTimeoutException: condition did not pass in 4.0 seconds (failed with exception)
+	at geb.waiting.Wait.waitFor(Wait.groovy:138)
+	at geb.Page.verifyThisPageAtOnly(Page.groovy:226)
+	at geb.Page.verifyAt(Page.groovy:182)
+	at geb.Browser.doAt(Browser.groovy:455)
+	at geb.Browser.at(Browser.groovy:337)
+	at geb.spock.GebSpec.methodMissing(GebSpec.groovy:56)
+	at com.ETMS1.ProcTestCase01.Step 03 Go To local(ProcTestCase01.groovy:57)
+Caused by: Assertion failed: 
+
+title == "Random games1"
+|     |
+|     false
+Random games2
+
+	at com.ETMS1.Random1Page._clinit__closure1(Random1Page.groovy:10)
+	at com.ETMS1.Random1Page._clinit__closure1(Random1Page.groovy)
+	at geb.waiting.Wait.waitFor(Wait.groovy:127)
+	... 6 more
+

@@ -1,0 +1,13 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+numberOfActiveBrowsers=0
+numberOfActiveBrowsers=1
+ getNewBrowserNumber gave = 1
+this is webdriver stuff in gebconfig
+Go To local
+local is opened
+driver info1 =Random games2
+driver info2 =Random games2
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 2, Failures: 0, Time: 7286

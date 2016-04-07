@@ -1,0 +1,144 @@
+package com.ETMS1
+
+import DAO_PACKAGE.SQLiteJDBC_DAO
+import geb.spock.GebReportingSpec
+import org.openqa.selenium.WebDriver
+import spock.lang.Stepwise
+//import org.gebish.geb-ast;
+//import geb.transform.implicitassertions.Runtime;
+//import geb.spock.GebReportingSpec
+//import spock.lang.Stepwise
+
+/**
+ * Created by E on 27/03/2016.
+ */
+
+@Stepwise
+class ProcTestCase01xx extends GebReportingSpec {
+
+    def "Step 01 Go To local"() {
+        when: "Go To localxx1"
+        println "Go To localxx1"
+        //to GooglePage
+        to Random1Page
+
+        ClickTimes(14,1200)
+        then: "local is opened"
+        println "local is opened"
+        //at GooglePage
+        at Random1Page
+
+    }
+
+    /*
+    def "Step 02 Go To Google"() {
+        when:
+        to GooglePage
+        sleep(1500)
+        then:
+        at GooglePage //CHANGED ON PURPOSE
+        //at GettyPage
+    }
+*/
+     def "Step 03 Go To local"() {
+         when: "Go To local"
+         //println "Go To local"
+         //to GooglePage
+         to Random2Page
+
+         //ClickTimes(1,1000)
+         then: "local is opened"
+         //println "local is opened"
+         at GooglePage
+         //at Random2Page
+
+     }
+
+    def setupSpec() {
+        println "setupSpec 4Ax"
+
+        //GebConfigExtraETS2 gce = new GebConfigExtraETS2();
+        int number;
+        System.out.println("hello");
+        sleep(1000)
+        //number = new GroovyBrowserDaoETMS1("http://localhost:63342/QuickHtml/htmlApp.html").getNewBrowserNumber();
+        //GUI x1=new GUI();
+        //sleep(1000)
+        //number = new GroovyBrowserDaoETMS1("http://localhost:63342/QuickHtml/htmlApp.html").getNewBrowserNumber();
+        //sleep(1000)
+        //number = new GroovyBrowserDaoETMS1("http://localhost:63342/QuickHtml/htmlApp.html").getNewBrowserNumber();
+        //number = GroovyBrowserDaoETMS1.getNewBrowserNumber();//?????????? WERKT DIT? //TODO CHECK
+        //System.out.println(number);
+        //number=new GUI().getNewBrowserNumber();//todo WHYYYYYY gaat dit fout terwijl het bij scanner2 wel mag (class extends application is the fault). kwam door Application missing als CLASSPATH
+        //GUI guix = new GUI();
+        //int booleanArray = guix.activeBrowsers[number]=true;
+        //boolean[] activeBrowserscopy=guix.activeBrowsers;
+        //activeBrowserscopy[number]=true;
+        //System.out.println()
+        //guix.activeBrowsers[number]=true;
+        //guix.activeBrowsers=activeBrowserscopy;
+        number=new SQLiteJDBC_DAO().findFree();
+        new SQLiteJDBC_DAO().takeBrowser(number, "TestCase x123", "TAKEN");
+        try{
+            //Thread.sleep(10000)
+        }
+        catch (Exception e1){}
+
+        //println(new GUItryout().number);
+
+        //int xx = new GUI().getNewBrowserNumber();
+        //System.out.println(xx);
+        println " getNewBrowserNumber gave = " + number;
+        browser.driver = new GebConfigExtraETS2().getDriver("chrome", "nl",number)
+
+    }
+    def cleanupSpec() {
+        driver.get("about:blank")
+        GroovyBrowserDaoETMS1.storeDriver(driver);
+        GebConfigExtraETS2 gcf = new GebConfigExtraETS2();
+        gcf.extraDriver=driver;
+        println "driver info1 =" + driver.getTitle()
+        WebDriver driver = new GroovyBrowserDaoETMS1().giveDriver()
+        println "driver info2 =" + driver.getTitle()
+        /*for(int i=0;i<10;i++){
+            for(int j=0;j<5;j++){
+                print " ################ "
+            }
+            print " ################ ---\n---"
+        }*/
+        //browser.report
+        //getBrowser().reportGroupDir
+        //TestWatcher tw = new TestWatcher();
+        //browser.driver.close()
+        //System.finalize();
+
+        //browser.close()
+        //TestRunner.
+        //browser.close()
+
+        //browser.close()
+        //driver.close()
+        //driver.close()
+        browser.close()
+        driver.quit()
+
+        browser.quit()//DEZE MELDT GOED AF ALS THREAD MAAR RESTORE-SESSION CHROME NEXT TIME (driver.quit en browser.quit samen werkt, maar niet zeker 100%
+        //driver.close()
+        //browser.close()
+
+        println "This is after quit() and before exit"
+        //System.exit(0)
+        //System.exit(3);
+        println "This is after exit()"
+
+        //browser.report()
+        //System.exit(-10)
+        return
+    }
+
+}
+
+
+
+/*
+class TestCase01 {}*/

@@ -1,0 +1,24 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+HERE
+HERE
+HERE
+HERE
+HERE
+HERE
+STRING IS: UPDATE BROWSER_SHARING SET FULLID='TestCase x123',STATUS='TAKEN'WHERE ID = 5
+Records created successfully
+ getNewBrowserNumber gave = 5
+this is webdriver stuff in gebconfig
+this is webdriver stuff in gebconfig
+driver info1 =about:blank
+driver info2 =about:blank
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 0, Failures: 1, Time: 7336
+Test Failure: com.ETMS1.ProcTestCase01xx
+groovy.lang.MissingPropertyException: No such property: browserpath for class: com.ETMS1.GebConfigExtraETS2
+	at com.ETMS1.GebConfigExtraETS2.getDriver(GebConfigExtraETS2.groovy:48)
+	at com.ETMS1.ProcTestCase01xx.setupSpec(ProcTestCase01xx.groovy:92)
+

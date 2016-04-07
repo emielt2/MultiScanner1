@@ -1,0 +1,12 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+this is webdriver stuff in gebconfig
+driver info1 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+driver info2 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 0, Failures: 1, Time: 11948
+Test Failure: com.ETMS1.ProcTestCase01
+groovy.lang.GroovyRuntimeException: Could not find matching constructor for: com.ETMS1.GroovyBrowserDaoETMS1(java.lang.String)
+	at com.ETMS1.ProcTestCase01.setupSpec(ProcTestCase01.groovy:66)
+

@@ -1,0 +1,10 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+numberOfActiveBrowsers ABC=true
+numberOfActiveBrowsers ABC=true
+FALSE FOR 2
+CHANGED TO TRUE FOR BROWSER 2
+ getNewBrowserNumber gave = 2
+this is webdriver stuff in gebconfig
+user-data-dir=Y:\Browser_profile2

@@ -1,0 +1,28 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+ getNewBrowserNumber gave = 0
+this is webdriver stuff in gebconfig
+this is webdriver stuff in gebconfig
+driver info1 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+driver info2 =https://www.google.com/_/chrome/newtab?espv=2&ie=UTF-8
+This is after quit() and before exit
+This is after exit()
+JUnit 4 Runner, Tests: 0, Failures: 1, Time: 67170
+Test Failure: com.ETMS1.ProcTestCase01
+org.openqa.selenium.WebDriverException: unknown error: Chrome failed to start: crashed
+  (Driver info: chromedriver=2.20.353145 (343b531d31eeb933ec778dbcf7081628a1396067),platform=Windows NT 10.0 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 61.50 seconds
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'PC-E', ip: '192.168.178.11', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.7.0_79'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:139)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:171)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:139)
+	at com.ETMS1.GebConfigExtraETS2.getDriver(GebConfigExtraETS2.groovy:52)
+	at com.ETMS1.ProcTestCase01.setupSpec(ProcTestCase01.groovy:69)
+

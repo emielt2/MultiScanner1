@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+    <title>Random games</title>
+</head>
+<body>
+<div id="map" style="width: 400px; height: 300px"></div>
+<label for="latitude">Latitude:</label>
+<input type="text" id="latitude" value="59.942402" /><br />
+<label for="randomnumber1">randomnumber1:</label><input type="text" id="randomnumber1" value="0.0" /><br />
+<label for="randomnumber2">randomnumber2:</label><input type="text" id="randomnumber2" value="0.0" /><br />
+<input type="submit" value="Show map" onclick=" showMap(document.getElementById('latitude').value,document.getElementById('longitude').value);" />
+<input type="submit" id="FFid" value="F" onclick=" doSomething();" />
+<script type="text/javascript">
+        function showMapx (latitude, longitude) {
+            var myMap = new ymaps.Map('map',{
+                        center:[latitude, longitude],
+                        zoom:16
+                    });
+        }
+        function doSomething(){
+        var ran = Math.random()*1000;
+
+        latitude = 10;
+        setTimeout(continueExecution, ran)
+function continueExecution()
+{
+   //finish doing things after the pause
+  longitude : 10.1;
+  var ran2 = Math.random();
+  //document.getElementById("randomnumber1").innerHTML = "New text!";
+  document.getElementById("randomnumber1").value = ran2;
+  document.getElementById("randomnumber2").value = Math.random();
+}
+
+
+        }
+
+
+    </script>
+
+</body></html>

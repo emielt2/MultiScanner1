@@ -1,0 +1,17 @@
+this is setproperty in gebconfig
+setupSpec 4Ax
+hello
+HERE
+HERE
+HERE
+HERE
+HERE
+HERE
+STRING IS: UPDATE BROWSER_SHARING SET FULLID='TestCase x123',STATUS='TAKEN'WHERE ID = 1
+Records created successfully
+ getNewBrowserNumber gave = 1
+this is webdriver stuff in gebconfig
+[class:class org.openqa.selenium.chrome.ChromeOptions, binary:null]
+
+[platform:ANY, class:class org.openqa.selenium.remote.DesiredCapabilities, javascriptEnabled:true, version:, browserName:chrome]
+Go To localxx1

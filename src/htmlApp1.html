@@ -1,0 +1,43 @@
+<html>
+<head >
+
+    <title>Random games1</title>
+</head>
+<body>
+<div id="map" style="width:200px; height: 30px"></div>
+<label for="label1text" >label1text:</label>
+<input type="text" id="label1text" value="59.942402"/><br/>
+<label for="randomnumber1">randomnumber1:</label><input type="text" id="randomnumber1" value="0.0"/><br/>
+<label for="randomnumber2">randomnumber2:</label><input type="text" id="randomnumber2" value="0.0"/><br/>
+<input type="submit" value="Show map" onclick=" showMap(document.getElementById('label1text').value,document.getElementById('longitude').value);"/>
+<input type="submit" id="FFid" value="F" onclick=" doSomething();"/>
+<h1 style="color:red;">This is htmlApp1</h1>
+<script type="text/javascript">
+        function showMapx (label1text, longitude) {
+            var myMap = new ymaps.Map('map',{
+                        center:[label1text, longitude],
+                        zoom:16
+                    });
+        }
+        function doSomething(){
+        var ran = Math.random()*1000;
+
+        label1text = 10;
+        setTimeout(continueExecution, ran)
+function continueExecution()
+{
+   //finish doing things after the pause
+  longitude : 10.1;
+  var ran2 = Math.random();
+  //document.getElementById("randomnumber1").innerHTML = "New text!";
+  document.getElementById("randomnumber1").value = ran2;
+  document.getElementById("randomnumber2").value = Math.random();
+}
+
+
+        }
+
+
+    </script>
+</body>
+</html>
