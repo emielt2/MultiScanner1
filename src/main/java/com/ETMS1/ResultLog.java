@@ -10,5 +10,7 @@ public class ResultLog{
     public int amountCases;
     public int amountFailed;
     public int amountSkipped;
+    public long totaltimetaken;
+    public String opentext;
 
 }

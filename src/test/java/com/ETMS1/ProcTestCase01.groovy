@@ -8,6 +8,7 @@ import spock.lang.Stepwise
 import com.ETMS1.GebConfigExtraETS2.*;
 import com.ETMS1.GroovyBrowserDaoETMS1;
 import geb.transform.AttributeAccessingMetaClassRegistrar;
+import org.codehaus.groovy.tools.GroovyStarter
 
 //import org.gebish.geb-ast;
 //import geb.transform.implicitassertions.Runtime;

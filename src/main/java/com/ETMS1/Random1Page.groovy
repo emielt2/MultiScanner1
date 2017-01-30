@@ -14,6 +14,7 @@ class Random1Page extends Page {
     static content = {
         //manualsMenu { module MenuModule, $("#header-content ul li", 0) }
         //homelogo { $("h1", id: "logo")}
+        label1text {$("input",id:"label1text")}
         but1 { $("input", id: "FFid")}
         //but1 (By.id("FFid")
         homelogo { $("a", class: "site_logo")}//WORKS!!

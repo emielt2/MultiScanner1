@@ -24,7 +24,11 @@ import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.interactions.Actions
 import sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl
 
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.ReentrantLock
 
 //import org.openga.selenium.
 
@@ -41,7 +45,7 @@ public class GroovyBrowserDaoETMS1 implements Runnable{
         fileName = input;
     }
 
-
+    static public Lock GroovyBrowserDaoETMS1lockobject = new ReentrantLock();
     static String baseUrl; //idee voor global
     public static WebDriver driver;//was driver
     public static String shellReturnString01
@@ -459,7 +463,7 @@ String RunGroovyShell(String string1) {
         shell.run(new File(string1));//WORKS!!
         String x = new File(string1).toString();
         returnvalue =x;*/
-        println "textAlt"
+        //println "textAlt"
         //executeOnShell(string1, new File("F:/Users/E/medewerkers-it/src"));
         //executeOnShell(string1, new File("F:/Users/E/ETScanner2/src"));
        // executeOnShell(string1, new File("F:/Users/E/ETScanner2/"));
@@ -472,15 +476,15 @@ String RunGroovyShell(String string1) {
         executeOnShell(string1, new File("F:\\JAVA_CURSUS_OCP\\FolderToTestMAVEN2\\MultiScanner1"));//WTF WAAROM
 
         String current = new java.io.File( "." ).getCanonicalPath();
-        System.out.println("Current dir1:"+current);
-        println "XX22"
+        //System.out.println("Current dir1:"+current);
+        //println "XX22"
         String currentDir = System.getProperty("user.dir");
-        System.out.println("Current dir using System1:" +currentDir);
+        //System.out.println("Current dir using System1:" +currentDir);
         //todo twee keer currentdit
        // print System.getProperties()
         //F:\Users\E\ETScanner2\src\ETS2
         //F:\Users\E\ETScanner2\target\classes\ETS2
-        println "XX22b"
+        //println "XX22b"
 
         return returnvalue
     }
@@ -489,16 +493,28 @@ String RunGroovyShell(String string1) {
 
     String executeOnShell(String fileNameScript, File workingDir) {
 
-        println "Commandx = "+ fileNameScript
-        println "WORKING DIRx = " + workingDir
-        println "XX22"
-        def process = new ProcessBuilder(addShellPrefix(fileNameScript))
-                .directory(workingDir)
-                .redirectErrorStream(true)
-                .start()
+        //println "Commandx = "+ fileNameScript
+        //println "WORKING DIRx = " + workingDir
+        //println "XX22"
+        //println addShellPrefix(fileNameScript)
+        try{
+            //Process process = new ProcessBuilder(addShellPrefix(fileNameScript)).directory(new File("D:\\")).redirectErrorStream(true).start()
+            //Process process = new ProcessBuilder(addShellPrefix(fileNameScript)).directory(workingDir).redirectErrorStream(true).start()
+            Process process = new ProcessBuilder(addShellPrefix(fileNameScript)).redirectErrorStream(true).start()
 
-        //process.waitFor();
-        println "XX3"
+            //TODO BACK Process process = new ProcessBuilder(addShellPrefix(fileNameScript)).directory(workingDir)  .redirectErrorStream(true).start()                  .redirectErrorStream(true).start()
+
+            sleep(2000)
+//            println "exitvalue=" + process.exitValue()
+            //process.waitFor();//TODO BACK
+
+
+
+
+
+
+        //println "XX3"
+        sleep(2000)
         //
         process.inputStream.eachLine {
             String x = it;
@@ -518,7 +534,10 @@ String RunGroovyShell(String string1) {
             println "getP " + process.inputStream.getProperties();
             Thread.sleep(2000)
         }*/
-
+        }
+        catch (Exception e){
+            e.printStackTrace()
+        }
         String line = "";
         //"JUnit 4 Runner"
         /*while{!line.contains("Junit"){
@@ -528,8 +547,9 @@ String RunGroovyShell(String string1) {
         }*/
         //line = process.inputStream.eachLine {println "######"+ it}
         //println process.inputStream.getProperties()
-        println "XX4"
-        println "TextExecuteOnShell\n"
+        //println "XX4"
+        //println "TextExecuteOnShell\n"
+        sleep(2000)
         //process.exitValue()
         return "ok"
     }
@@ -549,7 +569,7 @@ String RunGroovyShell(String string1) {
             /*String dateText = "output_" + new FunctionsDaoETS2().getDateString()+ ".log"
             //commandArray[5] = dateText*/
         commandArray[5] = fileName
-        println commandArray[0] + " " + commandArray[1] + " " + commandArray[2] + " " + commandArray[3] + " " + commandArray[4]+ " " + commandArray[5]
+        //println "COMMANARR= "+ commandArray[0] + " " + commandArray[1] + " " + commandArray[2] + " " + commandArray[3] + " " + commandArray[4]+ " " + commandArray[5]
         return commandArray
     }
     public static void storeDriver(WebDriver wd){
@@ -645,16 +665,39 @@ String RunGroovyShell(String string1) {
         return returnvalue
     }
 
-    static String ShellToFixRestoreChrome(File fileName){
+    static String ShellToFixRestoreChrome(File fileName, int number){
         //File complete = new File(fileName);
         //File workingDir = new File("Y:");
         //File workingDir = new File(fileName)
-
+/*TODO VERY GOOD HERE set it back later
         String[] commandArray = ["sed","-i","'s/\"exit_type\":\"Crashed\"/\"exit_type\":\"Normal\"/'",fileName.toString()+"/Preferences"]
-        //println commandArray.toString()
-        println commandArray[0] + " " + commandArray[1] + " " + commandArray[2] + " " + commandArray[3]
+        ////String[] commandArray = ["sed","-i","'s/\"www.google.com\"/\"www.nu.nl\"/'",fileName.toString()+"/Preferences"]
+        println commandArray.toString()
         def process = new ProcessBuilder(commandArray).directory(new File(fileName.absolutePath)).redirectErrorStream(true).start()
         process.waitFor();
+*/
+        int widthbrowser = 600;
+        int heightbrowser = 450;
+        int xcoord = number*widthbrowser;
+        int ycoord=0;
+        if(number>=3){
+            ycoord=heightbrowser+50
+            xcoord = (number-3)*widthbrowser;
+        };
+
+        String totalString = "{\"account_id_migration_state\":2,\"account_tracker_service_last_update\":\"13130176321058392\",\"alternate_error_pages\":{\"enabled\":false},\"autofill\":{\"enabled\":false},\"browser\":{\"clear_lso_data_enabled\":true,\"pepper_flash_settings_enabled\":true,\"window_placement\":{\"bottom\":"+(ycoord+heightbrowser)+",\"docked\":false,\"left\":"+xcoord+",\"maximized\":false,\"right\":"+(xcoord+widthbrowser)+",\"top\":"+ycoord+",\"work_area_bottom\":1040,\"work_area_left\":0,\"work_area_right\":1920,\"work_area_top\":0}},\"countryid_at_install\":18242,\"data_reduction\":{\"daily_original_length\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"963064\",\"890284\",\"0\",\"68607\",\"66782\"],\"daily_original_length_application\":\"63431\",\"daily_original_length_unknown\":\"0\",\"daily_original_length_via_data_reduction_proxy\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_original_length_via_data_reduction_proxy_application\":\"0\",\"daily_original_length_via_data_reduction_proxy_unknown\":\"0\",\"daily_original_length_via_data_reduction_proxy_video\":\"0\",\"daily_original_length_video\":\"0\",\"daily_original_length_with_data_reduction_proxy_enabled\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_original_length_with_data_reduction_proxy_enabled_application\":\"0\",\"daily_original_length_with_data_reduction_proxy_enabled_unknown\":\"0\",\"daily_original_length_with_data_reduction_proxy_enabled_video\":\"0\",\"daily_received_length\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"963064\",\"890284\",\"0\",\"68607\",\"66782\"],\"daily_received_length_application\":\"63431\",\"daily_received_length_https_with_data_reduction_proxy_enabled\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_received_length_long_bypass_with_data_reduction_proxy_enabled\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_received_length_short_bypass_with_data_reduction_proxy_enabled\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_received_length_unknown\":\"0\",\"daily_received_length_unknown_with_data_reduction_proxy_enabled\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_received_length_via_data_reduction_proxy\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_received_length_via_data_reduction_proxy_application\":\"0\",\"daily_received_length_via_data_reduction_proxy_unknown\":\"0\",\"daily_received_length_via_data_reduction_proxy_video\":\"0\",\"daily_received_length_video\":\"0\",\"daily_received_length_with_data_reduction_proxy_enabled\":[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"daily_received_length_with_data_reduction_proxy_enabled_application\":\"0\",\"daily_received_length_with_data_reduction_proxy_enabled_unknown\":\"0\",\"daily_received_length_with_data_reduction_proxy_enabled_video\":\"0\",\"last_update_date\":\"13130204400000000\"},\"data_reduction_lo_fi\":{\"load_images_requests_per_session\":0,\"load_images_snackbars_shown_per_session\":0,\"was_used_this_session\":false},\"distribution\":{\"import_bookmarks\":false,\"import_history\":false,\"import_search_engine\":false,\"make_chrome_default_for_user\":false,\"show_welcome_page\":false,\"skip_first_run_ui\":true},\"dns_prefetching\":{\"host_referral_list\":[2,[\"https://www.google.com/\",[\"https://apis.google.com/\",1.0000158651778477,\"https://ssl.gstatic.com/\",2.000031733586277,\"https://www.google.com/\",13.04309225294957,\"https://www.gstatic.com/\",1.000026338816212]]],\"startup_list\":[1,\"http://localhost:63342/\",\"https://apis.google.com/\",\"https://ssl.gstatic.com/\",\"https://www.google.com/\",\"https://www.gstatic.com/\"]},\"download\":{\"directory_upgrade\":true},\"extensions\":{\"alerts\":{\"initialized\":true},\"autoupdate\":{\"last_check\":\"13130002550094609\",\"next_check\":\"13130207554207488\"},\"chrome_url_overrides\":{\"bookmarks\":[{\"active\":true,\"entry\":\"chrome-extension://eemcgdkfndhakfknompkggombfjjjeno/main.html\"}]}},\"gcm\":{\"product_category_for_subtypes\":\"com.chrome.windows\"},\"http_original_content_length\":\"5729801\",\"http_received_content_length\":\"5729801\",\"intl\":{\"accept_languages\":\"nl\"},\"invalidator\":{\"client_id\":\"LixqD7w+r+T8IMVLP9SkjQ==\"},\"language_model_counters\":{\"en\":2,\"und\":363},\"media\":{\"device_id_salt\":\"KD/tPkSyjkKuETyQrycJrw==\"},\"net\":{\"http_server_properties\":{\"servers\":[{\"ssl.gstatic.com:443\":{\"supports_spdy\":true}},{\"www.google.com:443\":{\"supports_spdy\":true}},{\"www.facebook.com:443\":{\"supports_spdy\":true}},{\"staticxx.facebook.com:443\":{\"supports_spdy\":true}},{\"beacons.gvt2.com:443\":{\"supports_spdy\":true}}],\"version\":4}},\"partition\":{\"per_host_zoom_levels\":{\"2166136261\":{\"nos.nl\":1.2239010857415449}}},\"plugins\":{\"npapi_flash_migrated_to_pepper_flash\":true,\"plugins_list\":[]},\"profile\":{\"avatar_index\":26,\"content_settings\":{\"domain_to_origin_migration_status\":1,\"exceptions\":{\"app_banner\":{},\"auto_select_certificate\":{},\"automatic_downloads\":{},\"autoplay\":{},\"background_sync\":{},\"bluetooth_guard\":{},\"cookies\":{},\"durable_storage\":{},\"fullscreen\":{},\"geolocation\":{},\"images\":{},\"important_site_info\":{},\"javascript\":{},\"keygen\":{},\"media_stream_camera\":{},\"media_stream_mic\":{},\"midi_sysex\":{},\"mixed_script\":{},\"mouselock\":{},\"notifications\":{},\"plugins\":{},\"popups\":{},\"ppapi_broker\":{},\"prompt_no_decision_count\":{},\"protocol_handler\":{},\"push_messaging\":{},\"site_engagement\":{\"http://localhost:63342,*\":{\"setting\":{\"lastEngagementTime\":13130207410185612.0,\"lastShortcutLaunchTime\":0.0,\"pointsAddedToday\":12.0,\"rawScore\":37.46672322483374}}},\"ssl_cert_decisions\":{},\"usb_chooser_data\":{}},\"pattern_pairs\":{\"https://*,*\":{\"media-stream\":{\"audio\":\"Default\",\"video\":\"Default\"}}},\"pref_version\":1},\"default_content_settings\":{\"geolocation\":1,\"mouselock\":1,\"notifications\":1,\"popups\":1,\"ppapi-broker\":1},\"exit_type\":\"Crashed\",\"exited_cleanly\":true,\"last_engagement_time\":\"13130207410185613\",\"managed_user_id\":\"\",\"name\":\"Person 1\",\"password_manager_enabled\":false},\"protection\":{\"macs\":{}},\"safebrowsing\":{\"enabled\":false},\"search\":{\"suggest_enabled\":false},\"spellcheck\":{\"dictionaries\":[\"en-GB\"],\"dictionary\":\"\"},\"toolbar_migrated_component_action_status\":{},\"translate\":{\"enabled\":false}}"
+        //FileOutputStream fos = new FileOutputStream("Y:\\Browser_profile0\\Default/Preferences2");
+
+        //File file = new File("Y:\\Browser_profile0\\Default/Preferences")
+        println "WRITING NEW PREF"+fileName.toString()
+        File file = fileName;
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bfw = new BufferedWriter(fw)
+
+        bfw.write(totalString);
+        bfw.flush()
+        bfw.close()
+
         //def process = new ProcessBuilder(commandArray).directory(complete.absolutePath).redirectErrorStream(true).start()
         //haal rest uit javaklad.java.txt
     }
@@ -690,8 +733,9 @@ String RunGroovyShell(String string1) {
     @Override
     void run() {
         //RunGroovyShellMulti("F:\\JAVA_CURSUS_OCP\\FolderToTestMAVEN2\\MultiScanner1\\src\\main\\java\\com\\ETMS1\\TestCase01.groovy");PERFFECT
-        this.RunProcessBuilder("F:\\JAVA_CURSUS_OCP\\FolderToTestMAVEN2\\MultiScanner1\\src\\main\\java\\com\\ETMS1\\ProcTestCase01xx.groovy");
-        System.out.println("run text");
+        //this.RunProcessBuilder("F:\\JAVA_CURSUS_OCP\\FolderToTestMAVEN2\\MultiScanner1\\src\\main\\java\\com\\ETMS1\\ProcTestCase01xx.groovy");OOK PERFECT 2017
+        this.RunProcessBuilder("F:\\JAVA_CURSUS_OCP\\FolderToTestMAVEN2\\MultiScanner1\\src\\main\\java\\com\\ETMS1\\ProcTestCase01xx.groovy")
+        //System.out.println("run text");
         //JvmThreadInstanceEntryImpl.ThreadStateMap ts = new JvmThreadInstanceEntryImpl.ThreadStateMap();
         //ts.
     }

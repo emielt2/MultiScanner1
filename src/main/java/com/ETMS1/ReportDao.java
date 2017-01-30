@@ -18,6 +18,7 @@ public class ReportDao implements Runnable{
             LineNumberReader lineIn = new LineNumberReader(in);
             boolean end = false;
             System.out.println(fileName);
+            long starttime=0;
             while (!end)
             {
                 try
@@ -38,13 +39,33 @@ public class ReportDao implements Runnable{
                         int failuresAmount = Integer.parseInt(line.substring(0,line.indexOf(",")));
                         System.out.println("testsAmout="+testsAmount);
                         System.out.println("failuresAmount="+failuresAmount);
-                        if(failuresAmount==0)System.out.println("RESULT is SUCCESS (" + testsAmount + "/"+testsAmount+" passed!)");
-                        else System.out.println("RESULT is FAILED ("+failuresAmount+"/"+testsAmount+" failed, " + (testsAmount-failuresAmount) + "/" + testsAmount + " passed.)");
+                        if(failuresAmount==0){
+                            System.out.println("RESULT is SUCCESS (" + testsAmount + "/"+testsAmount+" passed!)");
+                            returnobj.opentext="texthereSUCCES OK";
+                        }
+                        else{
+                            System.out.println("RESULT is FAILED ("+failuresAmount+"/"+testsAmount+" failed, " + (testsAmount-failuresAmount) + "/" + testsAmount + " passed.)");
+                            returnobj.opentext="texthereFAILED FAIL";
+                        }
                         returnobj.amountFailed=failuresAmount;
                         returnobj.amountCases=testsAmount;
                         returnobj.filename=fileName;
-                        returnobj.amountSkipped=-1;
+                        returnobj.amountSkipped=failuresAmount;//Stond op -1
 
+
+                    }
+
+                    if(line.contains("setupSpec: StartTime is: ")){
+                        starttime=Long.parseLong(line.substring(line.indexOf("setupSpec: StartTime is: ")+"setupSpec: StartTime is: ".length()));
+                        System.out.println("StartTime is "+starttime);
+                        //returnobj.
+                    }
+
+                    if(line.contains("cleanupSpec: EndTime is: ")){
+                        long endtime=Long.parseLong(line.substring(line.indexOf("cleanupSpec: EndTime is: ")+"cleanupSpec: EndTime is: ".length()));
+                        returnobj.totaltimetaken=endtime-starttime;
+                        //System.out.println("TotalTime is "+((endtime-starttime)) + "   starttime="+starttime+"   endtime="+endtime);
+                        //returnobj.
                     }
 
                 }

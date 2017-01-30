@@ -40,12 +40,13 @@ WebDriver extraDriver;
 public WebDriver getDriver(def browser, def String language,int number) {
 
 	if ("chrome".equalsIgnoreCase(browser)) {
-		println "this is webdriver stuff in gebconfig"//ETADD
+		println "this is webdriver stuff in gebconfigXX + number="+number//ETADD
 		DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
 		ChromeOptions chromeOptions = new ChromeOptions();
 		//chromeOptions.addArguments("--start-maximized");
 		chromeOptions.addArguments("user-data-dir=Y:\\Browser_profile"+number);//ETADD
 		//println (browserpath.toString())
+		//GroovyBrowserDaoETMS1.ShellToFixRestoreChrome(new File("Y:/Browser_profile"+number+"/Default"));//TODO WAS HERE
 		File googleprefenerences = new File(new String("user-data-dir=Y:/Browser_profile" + number + "/Default/Preferences"))
 
 		println chromeOptions.getProperties()

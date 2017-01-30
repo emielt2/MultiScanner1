@@ -3,7 +3,12 @@ package com.ETMS1
 import DAO_PACKAGE.SQLiteJDBC_DAO
 import geb.spock.GebReportingSpec
 import org.openqa.selenium.WebDriver
+import spock.lang.Shared
 import spock.lang.Stepwise
+
+import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.ReentrantLock
+
 //import org.gebish.geb-ast;
 //import geb.transform.implicitassertions.Runtime;
 //import geb.spock.GebReportingSpec
@@ -21,9 +26,14 @@ class ProcTestCase01xx extends GebReportingSpec {
         println "Go To localxx1"
         //to GooglePage
         to Random1Page
+        int range=10
+        int randomx = (int)((Math.random()*range))+10
+        label1text.value("NUMBER = "+number + "   randomx="+randomx)
 
-        ClickTimes(14,1200)
+        ClickTimes(randomx,600)
+
         then: "local is opened"
+        assert randomx>15
         println "local is opened"
         //at GooglePage
         at Random1Page
@@ -49,18 +59,22 @@ class ProcTestCase01xx extends GebReportingSpec {
          //ClickTimes(1,1000)
          then: "local is opened"
          //println "local is opened"
-         at GooglePage
-         //at Random2Page
+         //at GooglePage
+         at Random2Page
 
      }
+    @Shared
+    private int number;
 
+    @Shared
+    ReentrantLock extralock = new ReentrantLock();
     def setupSpec() {
-        println "setupSpec 4Ax"
-
+        println ("setupSpec: Class is: "+getClass())
+        println ("setupSpec: StartTime is: "+Calendar.getInstance().timeInMillis);
         //GebConfigExtraETS2 gce = new GebConfigExtraETS2();
-        int number;
+        number=-1;
         System.out.println("hello");
-        sleep(1000)
+        //sleep(1000)
         //number = new GroovyBrowserDaoETMS1("http://localhost:63342/QuickHtml/htmlApp.html").getNewBrowserNumber();
         //GUI x1=new GUI();
         //sleep(1000)
@@ -77,8 +91,29 @@ class ProcTestCase01xx extends GebReportingSpec {
         //System.out.println()
         //guix.activeBrowsers[number]=true;
         //guix.activeBrowsers=activeBrowserscopy;
-        number=new SQLiteJDBC_DAO().findFree();
-        new SQLiteJDBC_DAO().takeBrowser(number, "TestCase x123", "TAKEN");
+        //extralock.lock()
+        //GUI.GUIlockobject.lock()
+        synchronized (SQLiteJDBC_DAO.lockobject){
+        while(number==-1) {
+            //GroovyBrowserDaoETMS1.GroovyBrowserDaoETMS1lockobject.lock()
+            //SQLiteJDBC_DAO.lockobject.lock()
+
+            //SQLiteJDBC_DAO.lockobject.wait()
+                sleep(500)
+           // sleep(500)
+                //  number = new SQLiteJDBC_DAO().findFree();
+                    number = new SQLiteJDBC_DAO().takeFreeBrowser("TestCase x123")//getClass
+                println "NUMBER====================================="+number
+            //new SQLiteJDBC_DAO().takeBrowser(number, "TestCase x123", "TAKEN");
+
+            }
+            //SQLiteJDBC_DAO.lockobject.unlock()
+            //SQLiteJDBC_DAO.lockobject.notify()
+        }
+       //extralock.unlock()
+        //GUI.GUIlockobject.unlock()
+        //GroovyBrowserDaoETMS1.GroovyBrowserDaoETMS1lockobject.unlock()//TODO UNLOCK
+
         try{
             //Thread.sleep(10000)
         }
@@ -89,10 +124,13 @@ class ProcTestCase01xx extends GebReportingSpec {
         //int xx = new GUI().getNewBrowserNumber();
         //System.out.println(xx);
         println " getNewBrowserNumber gave = " + number;
+        GroovyBrowserDaoETMS1.ShellToFixRestoreChrome(new File("Y:/Browser_profile"+number+"/Default/Preferences"),number);
+        Thread.sleep(1000)
         browser.driver = new GebConfigExtraETS2().getDriver("chrome", "nl",number)
 
     }
     def cleanupSpec() {
+        println ("cleanupSpec: EndTime is: "+Calendar.getInstance().timeInMillis);
         driver.get("about:blank")
         GroovyBrowserDaoETMS1.storeDriver(driver);
         GebConfigExtraETS2 gcf = new GebConfigExtraETS2();
@@ -130,7 +168,9 @@ class ProcTestCase01xx extends GebReportingSpec {
         //System.exit(0)
         //System.exit(3);
         println "This is after exit()"
-
+        sleep(1000)
+        SQLiteJDBC_DAO.giveback(number,"NULL","FREE");
+        //SQLiteJDBC_DAO.giveback(2,"NULL","FREE");
         //browser.report()
         //System.exit(-10)
         return
