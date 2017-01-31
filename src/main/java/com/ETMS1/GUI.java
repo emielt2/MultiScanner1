@@ -267,14 +267,14 @@ public class GUI extends Application {
                     //gbd.RunProcessBuilder("F:\\JAVA_CURSUS_OCP\\FolderToTestMAVEN2\\MultiScanner1\\src\\test\\java\\com\\ETMS1\\TestCase01.groovy");
                     //synchronized (fileName){
                     //GroovyTestRunner gtr[]=new GroovyTestRunner[15];
-                    int totalspots=6;
-                    int totaltestruns = 20;
+                    int totalspots=1;
+                    int totaltestruns = 1;
                     SQLiteJDBC_DAO.resetTableBrowserSharing(totalspots);
                     ExecutorService exserv = Executors.newFixedThreadPool(totalspots);
 
                     for(int i=0;i<totaltestruns;i++){
                         //for(int y=0;y<totalspots;y++);
-
+                        Thread.sleep(300);
                         String fileNameString = "output_" + new FunctionsDaoETS2().getDateString()+ ".log";
                         //GroovyBrowserDaoETMS1.ShellToFixRestoreChrome(new File("Y:/Browser_profile"+i+"/Default"));//TODO
                         //gtr[i]=new GroovyTestRunner(fileNameString);
@@ -286,7 +286,7 @@ public class GUI extends Application {
                         //tryThread.start();
                         //tryThread.join();
                         //tryTh
-                        Thread.sleep(1000);
+                        //Thread.sleep(1000);
                     }
 
 /*

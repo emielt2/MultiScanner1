@@ -45,7 +45,7 @@ public class GroovyTestRunner implements Runnable{
 
             GUI.ResultObjForTable resultObjForTable = new GUI.ResultObjForTable(fileName,fileName,"CHROME",resultokfail,""+tempresultLog.totaltimetaken,tempresultLog.opentext);
             GUI.data.add(resultObjForTable);
-            System.out.println(tempresultLog.amountFailed +"FAILEDDDDDDDDDDDDDDDDDDD");
+            //System.out.println(tempresultLog.amountFailed +"FAILEDDDDDDDDDDDDDDDDDDD");
             //tempresultLog.
 
             //System.out.println("rep1 created");

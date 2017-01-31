@@ -30,10 +30,10 @@ class ProcTestCase01xx extends GebReportingSpec {
         int randomx = (int)((Math.random()*range))+10
         label1text.value("NUMBER = "+number + "   randomx="+randomx)
 
-        ClickTimes(randomx,600)
+        ClickTimes(randomx,300)
 
         then: "local is opened"
-        assert randomx>15
+        //assert randomx>15
         println "local is opened"
         //at GooglePage
         at Random1Page
@@ -99,11 +99,12 @@ class ProcTestCase01xx extends GebReportingSpec {
             //SQLiteJDBC_DAO.lockobject.lock()
 
             //SQLiteJDBC_DAO.lockobject.wait()
-                sleep(500)
+
            // sleep(500)
                 //  number = new SQLiteJDBC_DAO().findFree();
                     number = new SQLiteJDBC_DAO().takeFreeBrowser("TestCase x123")//getClass
                 println "NUMBER====================================="+number
+            if(number==-1){sleep(500)}
             //new SQLiteJDBC_DAO().takeBrowser(number, "TestCase x123", "TAKEN");
 
             }
@@ -121,11 +122,13 @@ class ProcTestCase01xx extends GebReportingSpec {
 
         //println(new GUItryout().number);
 
+
+
         //int xx = new GUI().getNewBrowserNumber();
         //System.out.println(xx);
         println " getNewBrowserNumber gave = " + number;
         GroovyBrowserDaoETMS1.ShellToFixRestoreChrome(new File("Y:/Browser_profile"+number+"/Default/Preferences"),number);
-        Thread.sleep(1000)
+        //Thread.sleep(1000)
         browser.driver = new GebConfigExtraETS2().getDriver("chrome", "nl",number)
 
     }
@@ -168,7 +171,7 @@ class ProcTestCase01xx extends GebReportingSpec {
         //System.exit(0)
         //System.exit(3);
         println "This is after exit()"
-        sleep(1000)
+        //sleep(1000)
         SQLiteJDBC_DAO.giveback(number,"NULL","FREE");
         //SQLiteJDBC_DAO.giveback(2,"NULL","FREE");
         //browser.report()

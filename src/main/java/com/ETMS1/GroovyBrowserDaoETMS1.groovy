@@ -504,7 +504,7 @@ String RunGroovyShell(String string1) {
 
             //TODO BACK Process process = new ProcessBuilder(addShellPrefix(fileNameScript)).directory(workingDir)  .redirectErrorStream(true).start()                  .redirectErrorStream(true).start()
 
-            sleep(2000)
+            //sleep(2000)
 //            println "exitvalue=" + process.exitValue()
             //process.waitFor();//TODO BACK
 
@@ -514,7 +514,7 @@ String RunGroovyShell(String string1) {
 
 
         //println "XX3"
-        sleep(2000)
+        //sleep(2000)
         //
         process.inputStream.eachLine {
             String x = it;
@@ -549,7 +549,7 @@ String RunGroovyShell(String string1) {
         //println process.inputStream.getProperties()
         //println "XX4"
         //println "TextExecuteOnShell\n"
-        sleep(2000)
+        //TODO JUST REMOVED sleep(2000)
         //process.exitValue()
         return "ok"
     }
